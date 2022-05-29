@@ -15,16 +15,18 @@ class Counter extends Component {
   //     </ul>
   //   );
   // }
-  handleIncrement = () =>  {
-    this.setState({count:this.state.count + 1})
-  }
+  handleIncrement = (id) => {
+    console.log(id);
+    this.setState({ count: this.state.count + 1 });
+  };
+
 
   render() {
     return (
       <div className="container">
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.handleIncrement({id:1})}
           className="btn btn-secondary btn-sm"
         >
           Increment
@@ -43,8 +45,7 @@ class Counter extends Component {
 
   formatCount() {
     const { count } = this.state;
-    return count ===0 ? 'Zero' : count;
- 
+    return count === 0 ? "Zero" : count;
   }
 }
 
