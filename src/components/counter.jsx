@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    value: this.props.value,
+    value: this.props.counter.value,
   };
 
   // renderTags() {
@@ -29,7 +29,7 @@ class Counter extends Component {
         >
           Increment
         </button>
-        <button className="btn btn-danger btn-sm m-2" onClick={this.props.onDelete}>Delete</button>
+        <button className="btn btn-danger btn-sm m-2" onClick={() => this.props.onDelete(this.props.counter.id)}>Delete</button>
         {/* {this.state.tags.length === 0 && "No Tags to Show"}
         {this.renderTags()} */}
       </div>

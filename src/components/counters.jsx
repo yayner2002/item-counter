@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, startTransition } from "react";
 import Counter from "./counter";
 
 class Counters extends Component {
@@ -11,8 +11,9 @@ class Counters extends Component {
     ],
   };
 
-  handleDelete = () => {
-    console.log("delete button clicked");
+  handleDelete = (deleteId) => {
+    const afterDelete = this.state.counters.filter(counter => counter.id !== deleteId)
+    this.setState({ counters:afterDelete})
   };
   render() {
     return (
@@ -21,8 +22,7 @@ class Counters extends Component {
           <Counter
             key={counter.id}
             onDelete={this.handleDelete}
-            value={counter.value}
-            id={counter.id}
+            counter={counter}
           ></Counter>
         ))}
       </div>
