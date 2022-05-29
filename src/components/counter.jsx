@@ -16,7 +16,6 @@ class Counter extends Component {
   //   );
   // }
   handleIncrement = (id) => {
-    console.log(id);
     this.setState({ value: this.state.value + 1 });
   };
 
